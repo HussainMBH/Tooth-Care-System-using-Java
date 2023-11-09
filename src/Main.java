@@ -14,7 +14,7 @@ public static void main(String[] args){
     Channeling channel = new Channeling();
     //loop to get choices from user until he stops
     while (loop){
-        System.out.println("1. Channeling Days \n2. Treatment Types \n3. Channel Booking");
+        System.out.println("1. Channeling Days \n2. Treatment Types \n3. Channel Booking \n4. Booking Patients Details \n5. Search Patient Details \n6. Days Filtered");
         int choice = scn.nextInt();
         switch (choice){
             //Channeling Days
@@ -45,6 +45,26 @@ public static void main(String[] args){
                 //channeling
                 channelbooking(p);
             }
+            break;
+            case 4:
+            {
+                channel.printpatients();
+            }
+            break;
+            case 5:
+            {
+                System.out.println("Enter patient ID to show details");
+                int patientID = scn.nextInt();
+                channel.printPatientDetails(patientID);
+            }
+            break;
+            case 6:
+            {
+                System.out.println("Enter the day to filter appointments (e.g., Monday, Wednesday):");
+                String filterDay = scn.next();
+                channel.viewAppointmentsByDay(filterDay);
+            }
+            break;
         }
     }
 }

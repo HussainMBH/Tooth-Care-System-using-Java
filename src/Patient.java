@@ -4,18 +4,44 @@ public class Patient {
     String address;
 
     int phonenumber;
-    String treatmentPreference;
+    String channelday;
+    String treatmenttype;
     int patientID; //id of patient created automatically
     String alloted;
     int number;
-    public Patient(String name, String address, int phonenumber, String treatmentPreference, String treatmenttype){
+    public Patient(String name, String address, int phonenumber, String channelday, String treatmenttype){
         this.name = name;
         this.address = address;
         this.phonenumber = phonenumber;
-        this.treatmentPreference = treatmentPreference;
+        this.channelday = channelday;
+        this.treatmenttype = treatmenttype;
         this.patientID = id++;
         alloted = "";
         number = -1;
 
+    }
+    // Getter methods for attributes
+    public int getPatientID() {
+        return patientID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public int getPhoneNumber() {
+        return phonenumber;
+    }
+
+    public String getChannelingDay() {
+        return channelday;
+    }
+
+    public String getTreatmentType() {
+        return treatmenttype;
     }
 }

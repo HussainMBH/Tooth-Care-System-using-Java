@@ -32,4 +32,58 @@ public class Channeling {
         System.out.println("Appointment Confirmed Successfully");
 
     }
+
+    public void printpatients(){
+        if(patients.isEmpty()){
+            System.out.println("No details of Patients");
+            return;
+        }
+        for (Patient p : patients.values()){
+            System.out.println("Patient ID: " + p.patientID);
+            System.out.println("Patient Name: "+ p.name);
+            System.out.println("Patient Address: " + p.address);
+            System.out.println("Phone Number: " + p.phonenumber);
+            System.out.println("Channel Day: "+p.channelday);
+            System.out.println("Treatment Type: " + p.treatmenttype);
+            System.out.println("Thank You");
+        }
+    }
+
+    public void printPatientDetails(int patientID) {
+        Patient patient = patients.get(patientID);
+        if (patient != null) {
+            System.out.println("Patient ID: " + patient.getPatientID());
+            System.out.println("Patient Name: " + patient.getName());
+            System.out.println("Patient Address: " + patient.getAddress());
+            System.out.println("Phone Number: " + patient.getPhoneNumber());
+            System.out.println("Channeling Day: " + patient.getChannelingDay());
+            System.out.println("Treatment Type: " + patient.getTreatmentType());
+        } else {
+            System.out.println("Patient with ID " + patientID + " not found.");
+        }
+    }
+
+    public void viewAppointmentsByDay(String day) {
+        boolean foundAppointments = false;
+
+        System.out.println("Appointments on " + day + ":");
+
+        for (Patient patient : patients.values()) {
+            if (day.equals(patient.getChannelingDay())) {
+                foundAppointments = true;
+                System.out.println("Patient ID: " + patient.getPatientID());
+                System.out.println("Patient Name: " + patient.getName());
+                System.out.println("Patient Address: " + patient.getAddress());
+                System.out.println("Phone Number: " + patient.getPhoneNumber());
+                System.out.println("Channeling Day: " + patient.getChannelingDay());
+                System.out.println("Treatment Type: " + patient.getTreatmentType());
+                System.out.println();
+            }
+        }
+
+        if (!foundAppointments) {
+            System.out.println("No appointments on " + day);
+        }
+    }
+
 }
