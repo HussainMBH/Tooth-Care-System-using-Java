@@ -3,9 +3,9 @@ import java.util.*;
 public class Main
 {
     //function for channel booking
-    public static void channelbooking(Patient p){
+    public static void channelbooking(Patient p, String acceptFee){
         Channeling channeler = new Channeling();
-        channeler.bookChanneling(p);
+        channeler.bookChanneling(p, acceptFee);
     }
 
 public static void main(String[] args){
@@ -40,10 +40,12 @@ public static void main(String[] args){
                 String channelday = scn.next();
                 //get treatment type
                 String treatmenttype = scn.next();
+                System.out.println("Appointment fee is 1000/-. Do you accept the fee? (yes/no)");
+                String acceptFee = scn.next().toLowerCase();
                 //create patient object
                 Patient p = new Patient(name,address,phonenumber,channelday,treatmenttype);
                 //channeling
-                channelbooking(p);
+                channelbooking(p, acceptFee);
             }
             break;
             case 4:

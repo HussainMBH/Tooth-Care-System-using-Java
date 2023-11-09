@@ -26,10 +26,25 @@ public class Channeling {
         System.out.println();
     }
 
-    public void bookChanneling(Patient p){
-        patients.put(p.patientID,p);
-        bookedchannelinglist.add(p.patientID);
-        System.out.println("Appointment Confirmed Successfully");
+    public void bookChanneling(Patient p, String acceptFee){
+        boolean feeAccepted = false;
+
+        // Check if the patient accepts the appointment fee
+        System.out.println("Appointment fee is 1000/-. Do you accept the fee? (yes/no)");
+
+
+
+        if (acceptFee.equals("yes")) {
+            feeAccepted = true;
+        } else {
+            System.out.println("Sorry, you can't book the appointment.");
+        }
+
+        if (feeAccepted) {
+            patients.put(p.getPatientID(), p);
+            bookedchannelinglist.add(p.getPatientID());
+            System.out.println("Appointment Confirmed Successfully");
+        }
 
     }
 
