@@ -26,11 +26,9 @@ public class Channeling {
         System.out.println();
     }
 
-    public void bookChanneling(Patient p, String acceptFee){
+    public void bookChanneling(Patient p, String acceptFee, String treatmentOption) {
         boolean feeAccepted = false;
-
-        // Check if the patient accepts the appointment fee
-        System.out.println("Appointment fee is 1000/-. Do you accept the fee? (yes/no)");
+        boolean treatmenttype = false;
 
 
 
@@ -41,11 +39,37 @@ public class Channeling {
         }
 
         if (feeAccepted) {
+            // Switch case for handling different treatment options
+            switch (treatmentOption) {
+                case "Cleaning":
+                    // Add code for Cleaning treatment
+                    System.out.println("Cleaning treatment booked.");
+                    break;
+                case "Whitening":
+                    // Add code for Whitening treatment
+                    System.out.println("Whitening treatment booked.");
+                    break;
+                case "Filling" :
+                    // Add code for Filling treatment
+                    System.out.println("Filling treatment booked.");
+                    break;
+                case "Nerve Filling":
+                    // Add code for Nerve filling treatment
+                    System.out.println("Nerve filling treatment booked.");
+                    break;
+                case "RCT":
+                    // Add code for Root Canal Therapy
+                    System.out.println("Root Canal Therapy booked.");
+                    break;
+                default:
+                    System.out.println("Invalid treatment option.");
+                    return;  // Exit the method if the treatment option is invalid
+            }
+
             patients.put(p.getPatientID(), p);
             bookedchannelinglist.add(p.getPatientID());
             System.out.println("Appointment Confirmed Successfully");
         }
-
     }
 
     public void printpatients(){
@@ -59,7 +83,7 @@ public class Channeling {
             System.out.println("Patient Address: " + p.address);
             System.out.println("Phone Number: " + p.phonenumber);
             System.out.println("Channel Day: "+p.channelday);
-            System.out.println("Treatment Type: " + p.treatmenttype);
+            System.out.println("Treatment Type: " + p.treatmentOption);
             System.out.println("Thank You");
         }
     }

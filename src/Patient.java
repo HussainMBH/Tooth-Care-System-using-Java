@@ -5,7 +5,7 @@ public class Patient {
 
     int phonenumber;
     String channelday;
-    String treatmenttype;
+    String treatmentOption;
     int patientID; //id of patient created automatically
     String alloted;
     int number;
@@ -14,7 +14,7 @@ public class Patient {
         this.address = address;
         this.phonenumber = phonenumber;
         this.channelday = channelday;
-        this.treatmenttype = treatmenttype;
+        this.treatmentOption = treatmenttype;
         this.patientID = id++;
         alloted = "";
         number = -1;
@@ -42,6 +42,6 @@ public class Patient {
     }
 
     public String getTreatmentType() {
-        return treatmenttype;
+        return treatmentOption;
     }
 }
